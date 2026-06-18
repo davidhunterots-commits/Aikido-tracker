@@ -89,7 +89,7 @@ const RANKS = [
   },
   {
     name: "2nd Kyu",
-    belt: "green",
+    belt: "brown",
     practiceDays: 300,
     note: "300 practice days after 2nd Kyu - Seminar attendance strongly encouraged",
     requirements: [
@@ -187,35 +187,35 @@ const DEFAULT_TECHNIQUES = [
   { id: 21, name: "Henka waza", category: "Advanced", learned: false, notes: "" },
 ];
 
-const TABS = ["Classes", "Rank", "Techniques", "Notes", "Seminars"];
+const TABS = ["Classes", "Rank", "Promotions", "Techniques", "Seminars", "Notes", "Glossary"];
 
 const SENSEI_OPTIONS = ["Sensei Rob Crowell, Shidoin", "Other"];
 const DURATION_OPTIONS = ["60", "90", "Other"];
 
 const G = {
-  gold: "#cc2222", goldLight: "#ff4444", goldDim: "rgba(204,34,34,0.15)", goldBorder: "rgba(204,34,34,0.3)",
-  bg: "linear-gradient(160deg, #0a0a0a 0%, #1a0000 60%, #111 100%)", bgSolid: "#111",
-  card: "rgba(255,255,255,0.04)", cardBorder: "rgba(255,255,255,0.1)",
-  text: "#f0f0f0", muted: "#999", dim: "#666",
-  green: "#cc2222", red: "#ff4444", purple: "#aaa",
+  gold: "#cc2222", goldLight: "#ff4444", goldDim: "rgba(204,34,34,0.1)", goldBorder: "rgba(204,34,34,0.25)",
+  bg: "linear-gradient(160deg, #f5f0e8 0%, #ede5d0 60%, #e8dcc8 100%)", bgSolid: "#ede5d0",
+  card: "rgba(255,255,255,0.6)", cardBorder: "rgba(180,160,120,0.3)",
+  text: "#1a1008", muted: "#7a6a50", dim: "#a09070",
+  green: "#cc2222", red: "#cc2222", purple: "#7a6a50",
 };
 
 const S = {
   app: { minHeight: "100vh", background: G.bg, color: G.text, fontFamily: "'Segoe UI', system-ui, sans-serif" },
-  header: { padding: "24px 20px 0", borderBottom: "1px solid rgba(204,34,34,0.3)" },
-  title: { fontSize: "24px", fontWeight: "700", color: "#ffffff", letterSpacing: "0.04em", margin: 0 },
+  header: { padding: "24px 20px 0", borderBottom: "1px solid rgba(204,34,34,0.25)", background: "rgba(245,240,232,0.9)" },
+  title: { fontSize: "24px", fontWeight: "700", color: "#1a1008", letterSpacing: "0.04em", margin: 0 },
   subtitle: { fontSize: "12px", color: G.muted, marginTop: "3px", marginBottom: "16px", letterSpacing: "0.06em", textTransform: "uppercase" },
   tabs: { display: "flex", overflowX: "auto" },
   tab: (a) => ({ padding: "9px 14px", fontSize: "13px", fontWeight: a ? "600" : "400", color: a ? "#cc2222" : G.muted, background: "transparent", border: "none", borderBottom: a ? "2px solid #cc2222" : "2px solid transparent", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }),
   body: { padding: "20px", maxWidth: "680px", margin: "0 auto" },
-  card: { background: G.card, border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "16px", marginBottom: "12px" },
-  input: { background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "8px", color: G.text, padding: "10px 14px", fontSize: "14px", width: "100%", boxSizing: "border-box", outline: "none" },
-  btn: { background: G.gold, color: "#fff", border: "none", borderRadius: "8px", padding: "10px 20px", fontWeight: "700", fontSize: "14px", cursor: "pointer" },
-  btnGhost: { background: G.goldDim, color: G.gold, border: "1px solid rgba(204,34,34,0.3)", borderRadius: "6px", padding: "5px 12px", fontSize: "12px", cursor: "pointer", fontWeight: "600" },
-  btnDanger: { background: "rgba(227,95,95,0.1)", color: G.red, border: "1px solid rgba(227,95,95,0.2)", borderRadius: "6px", padding: "4px 10px", fontSize: "12px", cursor: "pointer" },
+  card: { background: "rgba(255,255,255,0.65)", border: "1px solid rgba(180,160,120,0.3)", borderRadius: "12px", padding: "16px", marginBottom: "12px", boxShadow: "0 1px 4px rgba(100,80,40,0.08)" },
+  input: { background: "rgba(255,255,255,0.8)", border: "1px solid rgba(180,160,120,0.4)", borderRadius: "8px", color: G.text, padding: "10px 14px", fontSize: "14px", width: "100%", boxSizing: "border-box", outline: "none" },
+  btn: { background: "#cc2222", color: "#fff", border: "none", borderRadius: "8px", padding: "10px 20px", fontWeight: "700", fontSize: "14px", cursor: "pointer" },
+  btnGhost: { background: "rgba(204,34,34,0.08)", color: "#cc2222", border: "1px solid rgba(204,34,34,0.3)", borderRadius: "6px", padding: "5px 12px", fontSize: "12px", cursor: "pointer", fontWeight: "600" },
+  btnDanger: { background: "rgba(180,40,40,0.08)", color: "#cc2222", border: "1px solid rgba(180,40,40,0.2)", borderRadius: "6px", padding: "4px 10px", fontSize: "12px", cursor: "pointer" },
   label: { fontSize: "11px", color: G.muted, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "6px", display: "block" },
-  secTitle: { fontSize: "14px", fontWeight: "700", color: G.gold, marginBottom: "12px", letterSpacing: "0.05em", textTransform: "uppercase" },
-  stat: { flex: 1, background: "rgba(204,34,34,0.1)", border: "1px solid rgba(204,34,34,0.25)", borderRadius: "10px", padding: "14px", textAlign: "center" },
+  secTitle: { fontSize: "14px", fontWeight: "700", color: "#cc2222", marginBottom: "12px", letterSpacing: "0.05em", textTransform: "uppercase" },
+  stat: { flex: 1, background: "rgba(204,34,34,0.08)", border: "1px solid rgba(204,34,34,0.2)", borderRadius: "10px", padding: "14px", textAlign: "center" },
   statNum: { fontSize: "30px", fontWeight: "700", color: "#cc2222" },
   statLabel: { fontSize: "11px", color: G.muted, textTransform: "uppercase", letterSpacing: "0.06em" },
 };
@@ -230,7 +230,7 @@ function storeSave(key, val) {
   try { localStorage.setItem("aikido_" + key, JSON.stringify(val)); } catch {}
 }
 
-function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, profileName, dojoName, onClose }) {
+function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, profileName, dojoName, promotions, notes, onClose }) {
   const [copied, setCopied] = useState(false);
   const totalMin = classes.reduce((a, c) => a + (parseInt(c.duration) || 0), 0);
   const totalSemMin = seminars.reduce((a, s) => a + (parseInt(s.duration) || 0), 0);
@@ -239,22 +239,45 @@ function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, p
   const reqs = rank.requirements;
   const completedReqs = reqs.filter((_, i) => rankChecked[currentRank + "-" + i]).length;
   const pct = Math.round((completedReqs / reqs.length) * 100);
-  const classesForRank = classes.filter(c => c.rank === currentRank).length;
+
+  // Classes grouped by rank, sorted by date
+  const classesForRank = classes.filter(c => c.rank === currentRank).sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  // Build class dates section for each rank that has classes
+  const rankClassSections = RANKS.map((r, i) => {
+    const rankClasses = classes.filter(c => c.rank === i).sort((a, b) => new Date(a.date) - new Date(b.date));
+    return rankClasses.length > 0 ? { rank: r.name, classes: rankClasses } : null;
+  }).filter(Boolean);
+
   const summary = "Aikido Progress Report\n" +
     "================================\n" +
     (profileName ? "Name: " + profileName + "\n" : "") +
     (dojoName ? "Dojo: " + dojoName + "\n" : "") +
     "Current Rank: " + rank.name + "\n" +
     "Test Readiness: " + pct + "% (" + completedReqs + "/" + reqs.length + " requirements)\n" +
-    "Practice days for this rank: " + classesForRank + " / " + rank.practiceDays + "\n\n" +
+    "Practice days for this rank: " + classesForRank.length + " / " + rank.practiceDays + "\n\n" +
     "Training Log\n" +
-    "  Classes attended: " + classes.length + "\n" +
+    "  Total classes attended: " + classes.length + "\n" +
     "  Total class time: " + Math.floor(totalMin / 60) + "h " + (totalMin % 60) + "m\n" +
     "  Seminars attended: " + seminars.length + (seminars.length > 0 ? "\n  Seminar time: " + Math.floor(totalSemMin / 60) + "h " + (totalSemMin % 60) + "m" : "") + "\n\n" +
+    rankClassSections.map(s =>
+      "Classes logged for " + s.rank + " (" + s.classes.length + " days):\n" +
+      s.classes.map(c => "  " + c.date + (c.instructor ? " · " + c.instructor : "") + (c.focus ? " · " + c.focus : "") + " (" + c.duration + "m)").join("\n")
+    ).join("\n\n") + "\n\n" +
     "Techniques Learned: " + learned + " / " + techniques.length + "\n" +
     techniques.filter(t => t.learned).map(t => "  - " + t.name).join("\n") + "\n\n" +
     "Requirements for " + rank.name + ":\n" +
     reqs.map((r, i) => "  " + (rankChecked[currentRank + "-" + i] ? "[x]" : "[ ]") + " " + r).join("\n") + "\n\n" +
+    (promotions && promotions.length > 0 ?
+      "Promotion History:\n" +
+      [...promotions].sort((a, b) => new Date(a.date) - new Date(b.date))
+        .map(p => "  " + p.date + " · " + p.rank + (p.place ? " · " + p.place : "") + (p.examiners ? " · Examiner: " + p.examiners : "")).join("\n") + "\n\n"
+      : "") +
+    (notes && notes.length > 0 ?
+      "Training Notes:\n" +
+      [...notes].sort((a, b) => new Date(a.date) - new Date(b.date))
+        .map(n => "  [" + n.tag + "] " + (n.title ? n.title + ": " : "") + n.body).join("\n") + "\n\n"
+      : "") +
     "Generated " + new Date().toLocaleDateString();
 
   const copy = () => {
@@ -266,7 +289,7 @@ function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, p
   return (
     <>
       <div className="share-modal" style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-        <div style={{ background: "#111", border: "1px solid rgba(204,34,34,0.3)", borderRadius: "16px", padding: "24px", width: "100%", maxWidth: "500px", maxHeight: "82vh", display: "flex", flexDirection: "column" }}>
+        <div style={{ background: "#f5f0e8", border: "1px solid rgba(204,34,34,0.3)", borderRadius: "16px", padding: "24px", width: "100%", maxWidth: "500px", maxHeight: "82vh", display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
             <div style={{ fontWeight: "700", color: G.gold, fontSize: "16px" }}>Share Progress</div>
             <button onClick={onClose} style={{ background: "none", border: "none", color: G.muted, fontSize: "22px", cursor: "pointer", lineHeight: 1 }}>x</button>
@@ -277,20 +300,46 @@ function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, p
         </div>
       </div>
 
-      {/* Printable report - hidden on screen, shown only when printing */}
+      {/* Printable report */}
       <div className="printable-report" style={{ display: "none" }}>
-        <h1 style={{ fontFamily: "sans-serif" }}>Aikido Progress Report</h1>
+        <h1 style={{ fontFamily: "sans-serif", color: "#cc2222" }}>Aikido Progress Report</h1>
         {profileName && <p><strong>Name:</strong> {profileName}</p>}
         {dojoName && <p><strong>Dojo:</strong> {dojoName}</p>}
         <p><strong>Current Rank:</strong> {rank.name}</p>
         <p><strong>Test Readiness:</strong> {pct}% ({completedReqs}/{reqs.length} requirements)</p>
-        <p><strong>Practice days for this rank:</strong> {classesForRank} / {rank.practiceDays}</p>
+        <p><strong>Practice days for this rank:</strong> {classesForRank.length} / {rank.practiceDays}</p>
 
         <h2>Training Log</h2>
-        <p>Classes attended: {classes.length}</p>
+        <p>Total classes attended: {classes.length}</p>
         <p>Total class time: {Math.floor(totalMin / 60)}h {totalMin % 60}m</p>
         <p>Seminars attended: {seminars.length}</p>
         {seminars.length > 0 && <p>Seminar time: {Math.floor(totalSemMin / 60)}h {totalSemMin % 60}m</p>}
+
+        {rankClassSections.map((s, i) => (
+          <div key={i}>
+            <h2>Classes for {s.rank} ({s.classes.length} practice days)</h2>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+              <thead>
+                <tr style={{ background: "#f0e8d8" }}>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Date</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Instructor</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Focus</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                {s.classes.map((c, j) => (
+                  <tr key={j} style={{ background: j % 2 === 0 ? "#fff" : "#faf6ef" }}>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{c.date}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{c.instructor || "—"}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{c.focus || "—"}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{c.duration}m</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
 
         <h2>Techniques Learned ({learned} / {techniques.length})</h2>
         <ul>
@@ -299,8 +348,47 @@ function ShareModal({ classes, seminars, techniques, currentRank, rankChecked, p
 
         <h2>Requirements for {rank.name}</h2>
         <ul>
-          {reqs.map((r, i) => <li key={i}>{rankChecked[currentRank + "-" + i] ? "[x] " : "[ ] "}{r}</li>)}
+          {reqs.map((r, i) => <li key={i}>{rankChecked[currentRank + "-" + i] ? "✓ " : "○ "}{r}</li>)}
         </ul>
+
+        {promotions && promotions.length > 0 && (
+          <div>
+            <h2>Promotion History</h2>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+              <thead>
+                <tr style={{ background: "#f0e8d8" }}>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Date</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Rank</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Location</th>
+                  <th style={{ border: "1px solid #ccc", padding: "4px 8px", textAlign: "left" }}>Examiner(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...promotions].sort((a, b) => new Date(a.date) - new Date(b.date)).map((p, i) => (
+                  <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#faf6ef" }}>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{p.date}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{p.rank}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{p.place || "—"}</td>
+                    <td style={{ border: "1px solid #ccc", padding: "4px 8px" }}>{p.examiners || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {notes && notes.length > 0 && (
+          <div>
+            <h2>Training Notes</h2>
+            {[...notes].sort((a, b) => new Date(a.date) - new Date(b.date)).map((n, i) => (
+              <div key={i} style={{ marginBottom: "10px", borderLeft: "3px solid #cc2222", paddingLeft: "10px" }}>
+                <div style={{ fontSize: "12px", color: "#888" }}>{n.date} · {n.tag}</div>
+                {n.title && <div style={{ fontWeight: "bold", fontSize: "14px" }}>{n.title}</div>}
+                <div style={{ fontSize: "13px", marginTop: "2px" }}>{n.body}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         <p style={{ fontSize: "11px", color: "#666" }}>Generated {new Date().toLocaleDateString()}</p>
       </div>
@@ -331,23 +419,18 @@ function ClassForm({ initial, onSave, onCancel, saveLabel, currentRank }) {
   const [date, setDate] = useState(initial.date);
   const [rank, setRank] = useState(initial.rank !== undefined ? initial.rank : currentRank);
   const [instructor, setInstructor] = useState(initial.instructor || "");
-  const [instructorOther, setInstructorOther] = useState(
-    initial.instructor && !SENSEI_OPTIONS.includes(initial.instructor) ? initial.instructor : ""
-  );
   const [focus, setFocus] = useState(initial.focus || "");
   const [duration, setDuration] = useState(initial.duration || "60");
   const [durationOther, setDurationOther] = useState(
     initial.duration && !DURATION_OPTIONS.includes(initial.duration) ? initial.duration : ""
   );
 
-  const isOther = instructor === "Other";
   const isDurOther = duration === "Other";
 
   const submit = () => {
     if (!date) return;
-    const finalInstructor = isOther ? instructorOther : instructor;
     const finalDuration = isDurOther ? durationOther : duration;
-    onSave({ date, instructor: finalInstructor, focus, duration: finalDuration, rank });
+    onSave({ date, instructor, focus, duration: finalDuration, rank });
   };
 
   return (
@@ -355,7 +438,7 @@ function ClassForm({ initial, onSave, onCancel, saveLabel, currentRank }) {
       <div style={{ marginBottom: "10px" }}>
         <label style={S.label}>Rank at time of class</label>
         <select style={{ ...S.input, cursor: "pointer" }} value={rank} onChange={e => setRank(Number(e.target.value))}>
-          {RANKS.map((r, i) => <option key={i} value={i} style={{ background: "#111" }}>{r.name}</option>)}
+          {RANKS.map((r, i) => <option key={i} value={i} style={{ background: "#f5f0e8" }}>{r.name}</option>)}
         </select>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
@@ -366,7 +449,7 @@ function ClassForm({ initial, onSave, onCancel, saveLabel, currentRank }) {
         <div>
           <label style={S.label}>Duration</label>
           <select style={{ ...S.input, cursor: "pointer" }} value={DURATION_OPTIONS.includes(duration) ? duration : "Other"} onChange={e => setDuration(e.target.value)}>
-            {DURATION_OPTIONS.map(d => <option key={d} value={d} style={{ background: "#111" }}>{d === "Other" ? "Other" : d + " min"}</option>)}
+            {DURATION_OPTIONS.map(d => <option key={d} value={d} style={{ background: "#f5f0e8" }}>{d === "Other" ? "Other" : d + " min"}</option>)}
           </select>
           {isDurOther && (
             <input type="number" style={{ ...S.input, marginTop: "8px" }} value={durationOther} onChange={e => setDurationOther(e.target.value)} placeholder="Enter minutes" />
@@ -375,13 +458,7 @@ function ClassForm({ initial, onSave, onCancel, saveLabel, currentRank }) {
       </div>
       <div style={{ marginBottom: "10px" }}>
         <label style={S.label}>Instructor</label>
-        <select style={{ ...S.input, cursor: "pointer" }} value={SENSEI_OPTIONS.includes(instructor) ? instructor : (instructor ? "Other" : "")} onChange={e => setInstructor(e.target.value)}>
-          <option value="" style={{ background: "#111" }}>Select instructor...</option>
-          {SENSEI_OPTIONS.map(s => <option key={s} value={s} style={{ background: "#111" }}>{s}</option>)}
-        </select>
-        {isOther && (
-          <input style={{ ...S.input, marginTop: "8px" }} value={instructorOther} onChange={e => setInstructorOther(e.target.value)} placeholder="Enter instructor name" />
-        )}
+        <input style={S.input} value={instructor} onChange={e => setInstructor(e.target.value)} placeholder="e.g. Sensei Smith" />
       </div>
       <div style={{ marginBottom: "14px" }}>
         <label style={S.label}>Focus / Techniques</label>
@@ -429,8 +506,8 @@ function ClassesTab({ classes, setClasses, currentRank }) {
         </div>
         {rank.practiceDays > 0 ? (
           <>
-            <div style={{ height: "8px", background: "rgba(255,255,255,0.08)", borderRadius: "4px", overflow: "hidden" }}>
-              <div style={{ height: "100%", width: progressPct + "%", background: "linear-gradient(90deg, #cc2222, #ff4444)", borderRadius: "4px", transition: "width 0.4s" }} />
+            <div style={{ height: "8px", background: "#ffffff", borderRadius: "4px", overflow: "hidden", border: "1px solid #c8b89a" }}>
+              <div style={{ height: "100%", width: progressPct + "%", background: "#c8b89a", borderRadius: "4px", transition: "width 0.4s" }} />
             </div>
             <div style={{ fontSize: "13px", color: G.gold, marginTop: "6px", fontWeight: "600" }}>{classesSinceRank} / {rank.practiceDays} practice days logged for this rank</div>
           </>
@@ -464,7 +541,7 @@ function ClassesTab({ classes, setClasses, currentRank }) {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
                 <div style={{ fontWeight: "600" }}>{c.date}</div>
-                {c.focus && <div style={{ fontSize: "13px", color: "#aaaacc", marginTop: "3px" }}>{c.focus}</div>}
+                {c.focus && <div style={{ fontSize: "13px", color: "#5a4a30", marginTop: "3px" }}>{c.focus}</div>}
                 {c.instructor && <div style={{ fontSize: "12px", color: G.muted, marginTop: "2px" }}>with {c.instructor}</div>}
                 {c.rank !== undefined && <div style={{ fontSize: "11px", color: G.gold, marginTop: "2px" }}>{RANKS[c.rank].name}</div>}
               </div>
@@ -530,7 +607,7 @@ function SeminarsTab({ seminars, setSeminars }) {
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: "700", fontSize: "15px" }}>{s.name}</div>
               <div style={{ fontSize: "12px", color: G.muted, marginTop: "3px" }}>{s.date}{s.location ? " · " + s.location : ""}{s.instructor ? " · " + s.instructor : ""}</div>
-              {s.notes && <div style={{ fontSize: "13px", color: "#aaaacc", marginTop: "6px", fontStyle: "italic" }}>{s.notes}</div>}
+              {s.notes && <div style={{ fontSize: "13px", color: "#5a4a30", marginTop: "6px", fontStyle: "italic" }}>{s.notes}</div>}
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginLeft: "10px" }}>
               <span style={{ color: "#cc2222", fontWeight: "600", fontSize: "13px" }}>{Math.round(s.duration / 60)}h</span>
@@ -559,8 +636,8 @@ function TechniquesTab({ techniques, setTechniques }) {
     <div>
       <div style={{ background: "rgba(204,34,34,0.1)", border: "1px solid rgba(204,34,34,0.25)", borderRadius: "10px", padding: "14px", marginBottom: "16px" }}>
         <div style={{ fontSize: "11px", color: G.muted, marginBottom: "6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>Techniques Learned</div>
-        <div style={{ height: "8px", background: "rgba(255,255,255,0.08)", borderRadius: "4px", overflow: "hidden" }}>
-          <div style={{ height: "100%", width: ((learned / techniques.length) * 100) + "%", background: "linear-gradient(90deg, #cc2222, #ff4444)", borderRadius: "4px", transition: "width 0.4s" }} />
+        <div style={{ height: "8px", background: "#ffffff", borderRadius: "4px", overflow: "hidden", border: "1px solid #c8b89a" }}>
+          <div style={{ height: "100%", width: ((learned / techniques.length) * 100) + "%", background: "#c8b89a", borderRadius: "4px", transition: "width 0.4s" }} />
         </div>
         <div style={{ fontSize: "13px", color: G.gold, marginTop: "6px", fontWeight: "600" }}>{learned} / {techniques.length}</div>
       </div>
@@ -572,13 +649,13 @@ function TechniquesTab({ techniques, setTechniques }) {
       {filtered.map(t => (
         <div key={t.id} style={{ ...S.card, borderColor: t.learned ? "rgba(204,34,34,0.25)" : G.cardBorder }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div onClick={() => toggle(t.id)} style={{ width: "22px", height: "22px", borderRadius: "50%", flexShrink: 0, cursor: "pointer", background: t.learned ? G.gold : "transparent", border: "2px solid " + (t.learned ? G.gold : "rgba(255,255,255,0.2)"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
-              {t.learned && <span style={{ color: "#fff", fontWeight: "700" }}>v</span>}
+            <div onClick={() => toggle(t.id)} style={{ width: "22px", height: "22px", borderRadius: "50%", flexShrink: 0, cursor: "pointer", background: t.learned ? G.gold : "transparent", border: "2px solid " + (t.learned ? "#cc2222" : "rgba(100,80,40,0.4)"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
+              {t.learned && <span style={{ color: "#fff", fontWeight: "700" }}>✓</span>}
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: "600", color: t.learned ? G.gold : G.text }}>{t.name}</div>
               <div style={{ fontSize: "11px", color: G.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t.category}</div>
-              {t.notes && <div style={{ fontSize: "12px", color: "#aaaacc", marginTop: "3px", fontStyle: "italic" }}>{t.notes}</div>}
+              {t.notes && <div style={{ fontSize: "12px", color: "#5a4a30", marginTop: "3px", fontStyle: "italic" }}>{t.notes}</div>}
             </div>
             <button style={S.btnGhost} onClick={() => { setEditNote(t.id); setNoteText(t.notes); }}>Note</button>
           </div>
@@ -615,7 +692,7 @@ function RankTab({ currentRank, setCurrentRank, rankChecked, setRankChecked, cla
     setRankChecked(u); storeSave("rankChecked", u);
   };
 
-  const beltColors = { white: "#e8e8e8", yellow: "#FFDA63", green: "#4CAF50", brown: "#8B5E3C", black: "#333" };
+  const beltColors = { white: "#e8e8e8", yellow: "#FFDA63", green: "#4CAF50", brown: "#A0522D", black: "#888" };
   const bc = beltColors[rank.belt] || G.gold;
 
   return (
@@ -623,7 +700,7 @@ function RankTab({ currentRank, setCurrentRank, rankChecked, setRankChecked, cla
       <div style={{ marginBottom: "18px" }}>
         <label style={S.label}>Current Rank</label>
         <select style={{ ...S.input, cursor: "pointer" }} value={currentRank} onChange={e => changeRank(Number(e.target.value))}>
-          {RANKS.map((r, i) => <option key={i} value={i} style={{ background: "#111" }}>{r.name}</option>)}
+          {RANKS.map((r, i) => <option key={i} value={i} style={{ background: "#f5f0e8" }}>{r.name}</option>)}
         </select>
       </div>
 
@@ -638,15 +715,15 @@ function RankTab({ currentRank, setCurrentRank, rankChecked, setRankChecked, cla
             <div style={{ fontSize: "11px", color: G.muted }}>techniques ready</div>
           </div>
         </div>
-        <div style={{ height: "18px", background: "rgba(255,255,255,0.05)", borderRadius: "9px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
-          <div style={{ height: "100%", width: pct + "%", background: pct === 100 ? "linear-gradient(90deg, #cc2222, #ff4444)" : "linear-gradient(90deg, " + bc + "88, " + bc + ")", borderRadius: "9px", transition: "width 0.5s" }} />
+        <div style={{ height: "18px", background: "#ffffff", borderRadius: "9px", overflow: "hidden", border: "1px solid #c8b89a" }}>
+          <div style={{ height: "100%", width: pct + "%", background: "#c8b89a", borderRadius: "9px", transition: "width 0.5s" }} />
         </div>
         <div style={{ fontSize: "12px", color: G.muted, marginTop: "6px", marginBottom: "10px" }}>{completedReqs} of {reqs.length} requirements met</div>
 
         {rank.practiceDays > 0 && (
           <>
-            <div style={{ height: "10px", background: "rgba(255,255,255,0.05)", borderRadius: "5px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", marginTop: "10px" }}>
-              <div style={{ height: "100%", width: practicePct + "%", background: "linear-gradient(90deg, #888, #ccc)", borderRadius: "5px", transition: "width 0.5s" }} />
+            <div style={{ height: "10px", background: "#ffffff", borderRadius: "5px", overflow: "hidden", border: "1px solid #c8b89a", marginTop: "10px" }}>
+              <div style={{ height: "100%", width: practicePct + "%", background: "#c8b89a", borderRadius: "5px", transition: "width 0.5s" }} />
             </div>
             <div style={{ fontSize: "12px", color: G.muted, marginTop: "6px" }}>{classesSinceRank} / {rank.practiceDays} practice days logged for this rank</div>
           </>
@@ -660,8 +737,8 @@ function RankTab({ currentRank, setCurrentRank, rankChecked, setRankChecked, cla
         return (
           <div key={i} style={{ ...S.card, cursor: "pointer", borderColor: done ? "rgba(204,34,34,0.3)" : G.cardBorder }} onClick={() => toggleReq(i)}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ width: "20px", height: "20px", borderRadius: "4px", flexShrink: 0, background: done ? G.green : "transparent", border: "2px solid " + (done ? G.green : "rgba(255,255,255,0.2)"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
-                {done && <span style={{ color: "white", fontWeight: "700" }}>v</span>}
+              <div style={{ width: "20px", height: "20px", borderRadius: "4px", flexShrink: 0, background: done ? G.green : "transparent", border: "2px solid " + (done ? "#cc2222" : "rgba(100,80,40,0.4)"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>
+                {done && <span style={{ color: "#fff", fontWeight: "700" }}>✓</span>}
               </div>
               <span style={{ color: done ? G.muted : G.text, textDecoration: done ? "line-through" : "none", fontSize: "14px" }}>{req}</span>
             </div>
@@ -674,7 +751,7 @@ function RankTab({ currentRank, setCurrentRank, rankChecked, setRankChecked, cla
           {nextRank.requirements.map((req, i) => (
             <div key={i} style={{ ...S.card, opacity: 0.45 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <div style={{ width: "20px", height: "20px", borderRadius: "4px", border: "2px solid rgba(255,255,255,0.15)", flexShrink: 0 }} />
+                <div style={{ width: "20px", height: "20px", borderRadius: "4px", border: "2px solid rgba(100,80,40,0.3)", flexShrink: 0 }} />
                 <span style={{ fontSize: "14px", color: G.muted }}>{req}</span>
               </div>
             </div>
@@ -723,10 +800,250 @@ function NotesTab({ notes, setNotes }) {
               <button style={S.btnDanger} onClick={() => remove(n.id)}>x</button>
             </div>
           </div>
-          <div style={{ fontSize: "13px", color: "#aaaacc", lineHeight: "1.6", whiteSpace: "pre-wrap" }}>{n.body}</div>
+          <div style={{ fontSize: "13px", color: "#5a4a30", lineHeight: "1.6", whiteSpace: "pre-wrap" }}>{n.body}</div>
           <div style={{ fontSize: "11px", color: G.dim, marginTop: "8px" }}>{n.date}</div>
         </div>
       ))}
+    </div>
+  );
+}
+
+const KYU_DAN_RANKS = [
+  "Beginner",
+  "6th Kyu", "5th Kyu", "4th Kyu", "3rd Kyu", "2nd Kyu", "1st Kyu",
+  "Shodan (1st Dan)", "Nidan (2nd Dan)", "Sandan (3rd Dan)", "Yondan (4th Dan)",
+];
+
+function PromotionsTab({ promotions, setPromotions }) {
+  const [rank, setRank] = useState("6th Kyu");
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+  const [place, setPlace] = useState("");
+  const [examiners, setExaminers] = useState("");
+  const [editingId, setEditingId] = useState(null);
+  const [editRank, setEditRank] = useState("");
+  const [editDate, setEditDate] = useState("");
+  const [editPlace, setEditPlace] = useState("");
+  const [editExaminers, setEditExaminers] = useState("");
+
+  const add = () => {
+    if (!date || !rank) return;
+    const updated = [{ id: Date.now(), rank, date, place, examiners }, ...promotions];
+    setPromotions(updated);
+    storeSave("promotions", updated);
+    setPlace(""); setExaminers("");
+  };
+
+  const remove = (id) => {
+    const updated = promotions.filter(p => p.id !== id);
+    setPromotions(updated);
+    storeSave("promotions", updated);
+  };
+
+  const startEdit = (p) => {
+    setEditingId(p.id);
+    setEditRank(p.rank);
+    setEditDate(p.date);
+    setEditPlace(p.place || "");
+    setEditExaminers(p.examiners || "");
+  };
+
+  const saveEdit = (id) => {
+    const updated = promotions.map(p => p.id === id ? { ...p, rank: editRank, date: editDate, place: editPlace, examiners: editExaminers } : p);
+    setPromotions(updated);
+    storeSave("promotions", updated);
+    setEditingId(null);
+  };
+
+  const sorted = [...promotions].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const isKyu = (r) => r.includes("Kyu") || r === "Beginner";
+  const isDan = (r) => r.includes("Dan") || r.includes("Shodan") || r.includes("Nidan") || r.includes("Sandan") || r.includes("Yondan");
+  const isBrown = (r) => r === "2nd Kyu" || r === "1st Kyu";
+
+  const rankColor = (r) => isDan(r) ? "#c9a84c" : isBrown(r) ? "#8B4513" : G.text;
+  const rankBadgeBg = (r) => isDan(r) ? "rgba(201,168,76,0.15)" : isBrown(r) ? "rgba(139,69,19,0.12)" : "rgba(255,255,255,0.06)";
+  const rankBadgeColor = (r) => isDan(r) ? "#c9a84c" : isBrown(r) ? "#8B4513" : G.muted;
+  const rankDotBg = (r) => isDan(r) ? "#c9a84c" : isBrown(r) ? "#8B4513" : "transparent";
+  const rankDotBorder = (r) => isDan(r) ? "#c9a84c" : isBrown(r) ? "#8B4513" : G.gold;
+
+  return (
+    <div>
+      {sorted.length > 0 && (
+        <div style={{ marginBottom: "18px" }}>
+          <div style={S.secTitle}>Promotion Record</div>
+          {sorted.map((p, i) => (
+            <div key={p.id} style={{ display: "flex", alignItems: "stretch", gap: "14px", marginBottom: "0" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "20px", flexShrink: 0 }}>
+                <div style={{ width: "14px", height: "14px", borderRadius: "50%", background: rankDotBg(p.rank), border: `2px solid ${rankDotBorder(p.rank)}`, flexShrink: 0, marginTop: "18px" }} />
+                {i < sorted.length - 1 && <div style={{ width: "2px", flex: 1, background: "rgba(204,34,34,0.2)", marginTop: "4px" }} />}
+              </div>
+              <div style={{ ...S.card, flex: 1, marginBottom: "8px" }}>
+                {editingId === p.id ? (
+                  <div>
+                    <div style={{ marginBottom: "10px" }}>
+                      <label style={S.label}>Rank Achieved</label>
+                      <select style={{ ...S.input, cursor: "pointer" }} value={editRank} onChange={e => setEditRank(e.target.value)}>
+                        {KYU_DAN_RANKS.map(r => <option key={r} value={r} style={{ background: "#f5f0e8" }}>{r}</option>)}
+                      </select>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
+                      <div>
+                        <label style={S.label}>Date</label>
+                        <input type="date" style={S.input} value={editDate} onChange={e => setEditDate(e.target.value)} />
+                      </div>
+                      <div>
+                        <label style={S.label}>Place</label>
+                        <input style={S.input} value={editPlace} onChange={e => setEditPlace(e.target.value)} placeholder="e.g. Vernon Hills, IL" />
+                      </div>
+                    </div>
+                    <div style={{ marginBottom: "12px" }}>
+                      <label style={S.label}>Examiner(s)</label>
+                      <input style={S.input} value={editExaminers} onChange={e => setEditExaminers(e.target.value)} placeholder="e.g. Sensei Rob Crowell, Shidoin" />
+                    </div>
+                    <div style={{ display: "flex", gap: "8px" }}>
+                      <button style={S.btn} onClick={() => saveEdit(p.id)}>Save</button>
+                      <button style={S.btnGhost} onClick={() => setEditingId(null)}>Cancel</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                    <div>
+                      <div style={{ fontWeight: "700", fontSize: "16px", color: rankColor(p.rank) }}>{p.rank}</div>
+                      <div style={{ fontSize: "12px", color: G.muted, marginTop: "3px" }}>{p.date}{p.place ? " · " + p.place : ""}</div>
+                      {p.examiners && <div style={{ fontSize: "12px", color: G.muted, marginTop: "2px" }}>Examiner(s): {p.examiners}</div>}
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span style={{ fontSize: "11px", color: rankBadgeColor(p.rank), background: rankBadgeBg(p.rank), padding: "2px 8px", borderRadius: "4px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                        {isDan(p.rank) ? "Dan" : isKyu(p.rank) ? "Kyu" : ""}
+                      </span>
+                      <button style={S.btnGhost} onClick={() => startEdit(p)}>Edit</button>
+                      <button style={S.btnDanger} onClick={() => remove(p.id)}>x</button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div style={S.card}>
+        <div style={S.secTitle}>Log a Promotion</div>
+        <div style={{ marginBottom: "10px" }}>
+          <label style={S.label}>Rank Achieved</label>
+          <select style={{ ...S.input, cursor: "pointer" }} value={rank} onChange={e => setRank(e.target.value)}>
+            {KYU_DAN_RANKS.map(r => <option key={r} value={r} style={{ background: "#f5f0e8" }}>{r}</option>)}
+          </select>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
+          <div>
+            <label style={S.label}>Date</label>
+            <input type="date" style={S.input} value={date} onChange={e => setDate(e.target.value)} />
+          </div>
+          <div>
+            <label style={S.label}>Place</label>
+            <input style={S.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="e.g. Vernon Hills, IL" />
+          </div>
+        </div>
+        <div style={{ marginBottom: "14px" }}>
+          <label style={S.label}>Examiner(s)</label>
+          <input style={S.input} value={examiners} onChange={e => setExaminers(e.target.value)} placeholder="e.g. Sensei Rob Crowell, Shidoin" />
+        </div>
+        <button style={S.btn} onClick={add}>Log Promotion</button>
+      </div>
+
+      {sorted.length === 0 && (
+        <div style={{ textAlign: "center", color: G.muted, marginTop: "20px", fontSize: "14px" }}>
+          No promotions logged yet. Record your first one above!
+        </div>
+      )}
+    </div>
+  );
+}
+
+const NOMENCLATURE = [
+  { term: "Ai hanmi", definition: "Mutual stance — both partners have the same foot forward (e.g., both right foot forward)." },
+  { term: "Gyaku hanmi", definition: "Opposite stance — partners have opposite feet forward (one right, one left)." },
+  { term: "Hanmi", definition: "Triangle stance — the basic ready stance in aikido, feet at approximately 60 degrees." },
+  { term: "Hanmi handachi", definition: "Half-standing position — uke is standing while nage is sitting (seiza or kiza)." },
+  { term: "Henka waza", definition: "Switching from one technique to another mid-execution. The examiner will call the first technique." },
+  { term: "Jiyu waza", definition: "Freestyle — nage varies techniques against interval attacks from uke." },
+  { term: "Jo tori", definition: "Disarm the attacker of a jo (wooden staff)." },
+  { term: "Jo waza", definition: "Techniques performed with a jo (wooden staff)." },
+  { term: "Kaeshi waza", definition: "Counter techniques — uke applies the technique back to nage. The original technique is called by the examiner (e.g., applying Sankyo against Nikyo)." },
+  { term: "Katatori", definition: "One-hand grab to the shoulder." },
+  { term: "Katatori menuchi", definition: "Grab to the shoulder combined with a strike to the head." },
+  { term: "Katatetori", definition: "One-hand grab to the wrist." },
+  { term: "Kokyu undo", definition: "Breathing/extension exercises used for warming up and developing ki extension (e.g., Funakogi undo, Ikkyo undo)." },
+  { term: "Kokyudosa", definition: "Seated ki development exercise performed with a partner, also called Zagi Kokyuho." },
+  { term: "Mae ukemi", definition: "Front breakfall or front roll — a forward falling/rolling technique." },
+  { term: "Morotetori", definition: "Two-hand grab — both of uke's hands grab one of nage's wrists." },
+  { term: "Nage", definition: "The person executing the technique; the 'thrower'." },
+  { term: "Omote", definition: "The front or entering variation of a technique — movement toward uke's front." },
+  { term: "Randori", definition: "Freestyle defense against rapid simultaneous attacks from multiple attackers." },
+  { term: "Rei", definition: "Bow — a formal greeting showing respect." },
+  { term: "Ryotetori", definition: "Both wrists held — uke grabs both of nage's wrists from the front." },
+  { term: "Seiza", definition: "Formal kneeling sitting posture — meditative position used at the start and end of class." },
+  { term: "Shikko", definition: "Knee walking — moving on the knees while in seiza position." },
+  { term: "Shomenuchi", definition: "A downward strike to the forehead/top of the head." },
+  { term: "Soto mawari", definition: "Outside movement — technique performed moving to the outside of uke's arm." },
+  { term: "Suwari waza", definition: "Techniques performed while both partners are in seiza (kneeling)." },
+  { term: "Tachi tori", definition: "Disarm the attacker of a bokken (wooden sword)." },
+  { term: "Tai sabaki", definition: "Body movement/footwork — the fundamental body-turning movements of aikido (e.g., tenkan, irimi, tenshin)." },
+  { term: "Tanto tori", definition: "Disarm the attacker of a tanto (wooden knife)." },
+  { term: "Tenkan", definition: "Pivoting body turn — rotating 180 degrees on the front foot." },
+  { term: "Irimi", definition: "Entering movement — stepping directly into uke's space/attack." },
+  { term: "Irimi tenkan", definition: "Combination of entering (irimi) and pivoting (tenkan)." },
+  { term: "Tenshin", definition: "Diagonal stepping movement — stepping back and to the side at an angle." },
+  { term: "Tsuki", definition: "A straight thrust or punch with a closed fist." },
+  { term: "Uchi mawari", definition: "Inside movement — technique performed moving to the inside of uke's arm." },
+  { term: "Uke", definition: "The person receiving the technique; the 'attacker' who also learns to fall safely." },
+  { term: "Ukemi", definition: "The art of falling safely — includes front rolls (mae ukemi) and back rolls/falls (ushiro ukemi)." },
+  { term: "Undo", definition: "Exercise — used in combination (e.g., Kokyu undo = breathing exercise)." },
+  { term: "Ura", definition: "The back or turning variation of a technique — movement behind uke." },
+  { term: "Ushiro kubishime", definition: "Choke from behind combined with a wrist grab." },
+  { term: "Ushiro ryokatatori", definition: "Both shoulders held from behind — uke grabs both of nage's shoulders from behind." },
+  { term: "Ushiro tekubitori", definition: "Both wrists held from behind — uke grabs both of nage's wrists from behind." },
+  { term: "Ushiro ukemi", definition: "Back breakfall or back roll — a rearward falling/rolling technique." },
+  { term: "Waza", definition: "Technique — used as a suffix to describe a class of techniques (e.g., suwari waza = kneeling techniques)." },
+  { term: "Yokomenuchi", definition: "A diagonal strike to the side of the head/neck." },
+  { term: "Zagi", definition: "Sitting in an active posture — used to describe seated (but active, not meditative) techniques." },
+];
+
+function GlossaryTab() {
+  const [search, setSearch] = useState("");
+
+  const filtered = search.trim()
+    ? NOMENCLATURE.filter(n =>
+        n.term.toLowerCase().includes(search.toLowerCase()) ||
+        n.definition.toLowerCase().includes(search.toLowerCase())
+      )
+    : NOMENCLATURE;
+
+  return (
+    <div>
+      <div style={{ marginBottom: "16px" }}>
+        <input
+          style={{ ...S.input, fontSize: "15px" }}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search terms..."
+        />
+      </div>
+      <div style={{ fontSize: "12px", color: G.muted, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+        {filtered.length} term{filtered.length !== 1 ? "s" : ""} · USAF Official Nomenclature
+      </div>
+      {filtered.map((item, i) => (
+        <div key={i} style={{ ...S.card, marginBottom: "8px" }}>
+          <div style={{ fontWeight: "700", fontSize: "16px", color: G.gold, marginBottom: "6px" }}>{item.term}</div>
+          <div style={{ fontSize: "14px", color: "#3a2a10", lineHeight: "1.6" }}>{item.definition}</div>
+        </div>
+      ))}
+      {filtered.length === 0 && (
+        <div style={{ textAlign: "center", color: G.muted, marginTop: "32px", fontSize: "14px" }}>
+          No terms matching "{search}"
+        </div>
+      )}
     </div>
   );
 }
@@ -739,6 +1056,7 @@ export default function App() {
   const [currentRank, setCurrentRank] = useState(0);
   const [rankChecked, setRankChecked] = useState({});
   const [notes, setNotes] = useState([]);
+  const [promotions, setPromotions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [showShare, setShowShare] = useState(false);
   const [profileName, setProfileName] = useState("");
@@ -754,6 +1072,7 @@ export default function App() {
     const r = storeLoad("currentRank");
     const rc = storeLoad("rankChecked");
     const n = storeLoad("notes");
+    const p = storeLoad("promotions");
     const pn = storeLoad("profileName");
     const dn = storeLoad("dojoName");
     const pp = storeLoad("profilePhoto");
@@ -763,6 +1082,7 @@ export default function App() {
     if (r !== null) setCurrentRank(r);
     if (rc) setRankChecked(rc);
     if (n) setNotes(n);
+    if (p) setPromotions(p);
     if (pn) setProfileName(pn);
     if (dn) setDojoName(dn);
     if (pp) setProfilePhoto(pp);
@@ -801,14 +1121,16 @@ export default function App() {
   const tabContent = [
     <ClassesTab classes={classes} setClasses={setClasses} currentRank={currentRank} />,
     <RankTab currentRank={currentRank} setCurrentRank={setCurrentRank} rankChecked={rankChecked} setRankChecked={setRankChecked} classes={classes} />,
+    <PromotionsTab promotions={promotions} setPromotions={setPromotions} />,
     <TechniquesTab techniques={techniques} setTechniques={setTechniques} />,
-    <NotesTab notes={notes} setNotes={setNotes} />,
     <SeminarsTab seminars={seminars} setSeminars={setSeminars} />,
+    <NotesTab notes={notes} setNotes={setNotes} />,
+    <GlossaryTab />,
   ];
 
   return (
     <div style={S.app}>
-      {showShare && <ShareModal classes={classes} seminars={seminars} techniques={techniques} currentRank={currentRank} rankChecked={rankChecked} profileName={profileName} dojoName={dojoName} onClose={() => setShowShare(false)} />}
+      {showShare && <ShareModal classes={classes} seminars={seminars} techniques={techniques} currentRank={currentRank} rankChecked={rankChecked} profileName={profileName} dojoName={dojoName} promotions={promotions} notes={notes} onClose={() => setShowShare(false)} />}
       <div style={S.header}>
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
@@ -856,7 +1178,7 @@ export default function App() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
               <h1 style={S.title}>Aikido Tracker</h1>
-              <p style={S.subtitle}><strong style={{ color: "#fff" }}>United States Aikido Federation</strong><br />Progress Journal</p>
+              <p style={S.subtitle}><strong style={{ color: "#1a1008" }}>United States Aikido Federation</strong><br />Progress Journal</p>
             </div>
             <button onClick={() => setShowShare(true)} style={{ ...S.btnGhost, marginTop: "10px" }}>Share</button>
           </div>
