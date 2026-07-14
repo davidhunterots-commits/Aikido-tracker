@@ -1059,6 +1059,7 @@ export default function App() {
   const [promotions, setPromotions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [showShare, setShowShare] = useState(false);
+  const [showBackup, setShowBackup] = useState(false);
   const [profileName, setProfileName] = useState("");
   const [dojoName, setDojoName] = useState("");
   const [editingDojo, setEditingDojo] = useState(false);
@@ -1088,6 +1089,47 @@ export default function App() {
     if (pp) setProfilePhoto(pp);
     setLoaded(true);
   }, []);
+
+  const exportBackup = () => {
+    const backup = {
+      version: "1.0",
+      exportedAt: new Date().toISOString(),
+      data: { classes, seminars, techniques, currentRank, rankChecked, notes, promotions, profileName, dojoName }
+    };
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "kaizen-aikido-backup-" + new Date().toISOString().split("T")[0] + ".json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const importBackup = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const backup = JSON.parse(reader.result);
+        const d = backup.data;
+        if (d.classes) { setClasses(d.classes); storeSave("classes", d.classes); }
+        if (d.seminars) { setSeminars(d.seminars); storeSave("seminars", d.seminars); }
+        if (d.techniques) { setTechniques(d.techniques); storeSave("techniques", d.techniques); }
+        if (d.currentRank !== undefined) { setCurrentRank(d.currentRank); storeSave("currentRank", d.currentRank); }
+        if (d.rankChecked) { setRankChecked(d.rankChecked); storeSave("rankChecked", d.rankChecked); }
+        if (d.notes) { setNotes(d.notes); storeSave("notes", d.notes); }
+        if (d.promotions) { setPromotions(d.promotions); storeSave("promotions", d.promotions); }
+        if (d.profileName) { setProfileName(d.profileName); storeSave("profileName", d.profileName); }
+        if (d.dojoName) { setDojoName(d.dojoName); storeSave("dojoName", d.dojoName); }
+        setShowBackup(false);
+        alert("Backup restored successfully!");
+      } catch {
+        alert("Error reading backup file. Please make sure it's a valid Kaizen Aikido Tracker backup.");
+      }
+    };
+    reader.readAsText(file);
+  };
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
@@ -1131,6 +1173,32 @@ export default function App() {
   return (
     <div style={S.app}>
       {showShare && <ShareModal classes={classes} seminars={seminars} techniques={techniques} currentRank={currentRank} rankChecked={rankChecked} profileName={profileName} dojoName={dojoName} promotions={promotions} notes={notes} onClose={() => setShowShare(false)} />}
+
+      {showBackup && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}>
+          <div style={{ background: "#f5f0e8", border: "1px solid rgba(204,34,34,0.3)", borderRadius: "16px", padding: "24px", width: "100%", maxWidth: "400px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <div style={{ fontWeight: "700", color: "#cc2222", fontSize: "16px" }}>Backup & Restore</div>
+              <button onClick={() => setShowBackup(false)} style={{ background: "none", border: "none", color: G.muted, fontSize: "22px", cursor: "pointer" }}>x</button>
+            </div>
+
+            <div style={{ marginBottom: "16px", background: "rgba(204,34,34,0.06)", border: "1px solid rgba(204,34,34,0.15)", borderRadius: "10px", padding: "14px" }}>
+              <div style={{ fontWeight: "700", fontSize: "14px", color: "#1a1008", marginBottom: "6px" }}>Export Backup</div>
+              <div style={{ fontSize: "13px", color: G.muted, marginBottom: "12px", lineHeight: "1.5" }}>Download all your training data as a JSON file. Save it somewhere safe before updates.</div>
+              <button style={{ ...S.btn, width: "100%" }} onClick={exportBackup}>Download Backup File</button>
+            </div>
+
+            <div style={{ background: "rgba(204,34,34,0.06)", border: "1px solid rgba(204,34,34,0.15)", borderRadius: "10px", padding: "14px" }}>
+              <div style={{ fontWeight: "700", fontSize: "14px", color: "#1a1008", marginBottom: "6px" }}>Restore from Backup</div>
+              <div style={{ fontSize: "13px", color: G.muted, marginBottom: "12px", lineHeight: "1.5" }}>Upload a previously exported backup file to restore your data. This will overwrite your current data.</div>
+              <label style={{ ...S.btn, width: "100%", display: "block", textAlign: "center", cursor: "pointer", boxSizing: "border-box" }}>
+                Choose Backup File
+                <input type="file" accept=".json" onChange={importBackup} style={{ display: "none" }} />
+              </label>
+            </div>
+          </div>
+        </div>
+      )}
       <div style={S.header}>
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
@@ -1180,7 +1248,10 @@ export default function App() {
               <h1 style={S.title}>Aikido Tracker</h1>
               <p style={S.subtitle}><strong style={{ color: "#1a1008" }}>United States Aikido Federation</strong><br />Progress Journal</p>
             </div>
-            <button onClick={() => setShowShare(true)} style={{ ...S.btnGhost, marginTop: "10px" }}>Share</button>
+            <div style={{ display: "flex", gap: "8px", marginTop: "10px" }}>
+              <button onClick={() => setShowShare(true)} style={S.btnGhost}>Share</button>
+              <button onClick={() => setShowBackup(true)} style={S.btnGhost}>Backup</button>
+            </div>
           </div>
           <div style={S.tabs}>
             {TABS.map((tab, i) => <button key={i} style={S.tab(activeTab === i)} onClick={() => setActiveTab(i)}>{tab}</button>)}
