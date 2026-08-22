@@ -189,7 +189,7 @@ const DEFAULT_TECHNIQUES = [
 
 const TABS = ["Classes", "Rank", "Promotions", "Techniques", "Seminars", "Notes", "Glossary"];
 
-const SENSEI_OPTIONS = ["Sensei Rob Crowell, Shidoin", "Other"];
+const SENSEI_OPTIONS = ["Other"];
 const DURATION_OPTIONS = ["60", "90", "Other"];
 
 const G = {
@@ -683,14 +683,14 @@ function SeminarsTab({ seminars, setSeminars }) {
       </div>
       <div style={S.card}>
         <div style={S.secTitle}>Log a Seminar</div>
-        <div style={{ marginBottom: "10px" }}><label style={S.label}>Seminar Name</label><input style={S.input} value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Great Lakes Aikido Summer Seminar" /></div>
+        <div style={{ marginBottom: "10px" }}><label style={S.label}>Seminar Name</label><input style={S.input} value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Regional Aikido Summer Seminar" /></div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
           <div><label style={S.label}>Date</label><input type="date" style={S.input} value={date} onChange={e => setDate(e.target.value)} /></div>
           <div><label style={S.label}>Duration (min)</label><input type="number" style={S.input} value={duration} onChange={e => setDuration(e.target.value)} /></div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
-          <div><label style={S.label}>Location</label><input style={S.input} value={location} onChange={e => setLocation(e.target.value)} placeholder="e.g. Vernon Hills, IL" /></div>
-          <div><label style={S.label}>Instructor</label><input style={S.input} value={instructor} onChange={e => setInstructor(e.target.value)} placeholder="e.g. Shihan Yamada" /></div>
+          <div><label style={S.label}>Location</label><input style={S.input} value={location} onChange={e => setLocation(e.target.value)} placeholder="e.g. Chicago, IL" /></div>
+          <div><label style={S.label}>Instructor</label><input style={S.input} value={instructor} onChange={e => setInstructor(e.target.value)} placeholder="e.g. Shihan Smith" /></div>
         </div>
         <div style={{ marginBottom: "14px" }}><label style={S.label}>Notes</label><textarea style={{ ...S.input, minHeight: "70px", resize: "vertical", fontFamily: "inherit" }} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Key techniques, takeaways, observations..." /></div>
         <button style={S.btn} onClick={add}>Log Seminar</button>
@@ -698,7 +698,7 @@ function SeminarsTab({ seminars, setSeminars }) {
       {seminars.length === 0 && (
         <div style={{ textAlign: "center", color: G.muted, marginTop: "32px", fontSize: "14px" }}>
           No seminars yet.<br />
-          <span style={{ fontSize: "12px", color: G.dim, display: "block", marginTop: "6px" }}>Upcoming: Great Lakes Aikido - June 20-21</span>
+          <span style={{ fontSize: "12px", color: G.dim, display: "block", marginTop: "6px" }}>Log your next seminar above</span>
         </div>
       )}
       {seminars.map(s => (
@@ -987,11 +987,11 @@ function PromotionsTab({ promotions, setPromotions }) {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
               <div><label style={S.label}>Date</label><input type="date" style={S.input} value={editDate} onChange={e => setEditDate(e.target.value)} /></div>
-              <div><label style={S.label}>Place</label><input style={S.input} value={editPlace} onChange={e => setEditPlace(e.target.value)} placeholder="e.g. Vernon Hills, IL" /></div>
+              <div><label style={S.label}>Place</label><input style={S.input} value={editPlace} onChange={e => setEditPlace(e.target.value)} placeholder="e.g. Chicago, IL" /></div>
             </div>
             <div style={{ marginBottom: "12px" }}>
               <label style={S.label}>Examiner(s)</label>
-              <input style={S.input} value={editExaminers} onChange={e => setEditExaminers(e.target.value)} placeholder="e.g. Sensei Rob Crowell, Shidoin" />
+              <input style={S.input} value={editExaminers} onChange={e => setEditExaminers(e.target.value)} placeholder="e.g. Shihan Smith" />
             </div>
             <div style={{ display: "flex", gap: "8px" }}>
               <button style={S.btn} onClick={() => saveEdit(p.id)}>Save</button>
@@ -1079,12 +1079,12 @@ function PromotionsTab({ promotions, setPromotions }) {
           </div>
           <div>
             <label style={S.label}>Place</label>
-            <input style={S.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="e.g. Vernon Hills, IL" />
+            <input style={S.input} value={place} onChange={e => setPlace(e.target.value)} placeholder="e.g. Chicago, IL" />
           </div>
         </div>
         <div style={{ marginBottom: "14px" }}>
           <label style={S.label}>Examiner(s)</label>
-          <input style={S.input} value={examiners} onChange={e => setExaminers(e.target.value)} placeholder="e.g. Sensei Rob Crowell, Shidoin" />
+          <input style={S.input} value={examiners} onChange={e => setExaminers(e.target.value)} placeholder="e.g. Shihan Smith" />
         </div>
         <button style={S.btn} onClick={add}>Log Promotion</button>
       </div>
@@ -1382,8 +1382,8 @@ export default function App() {
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
-              <h1 style={S.title}>Aikido Tracker</h1>
-              <p style={S.subtitle}><strong style={{ color: "#1a1008" }}>United States Aikido Federation</strong><br />Progress Journal</p>
+              <h1 style={S.title}>Kaizen Aikido Tracker</h1>
+              <p style={S.subtitle}>Progress Journal</p>
             </div>
             <div style={{ display: "flex", gap: "8px", marginTop: "10px" }}>
               <button onClick={() => setShowShare(true)} style={S.btnGhost}>Share</button>
